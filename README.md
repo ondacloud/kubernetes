@@ -1,6 +1,8 @@
 # Repository Guide
+```
 .
 └── Kubernetes
     ├── EKS
-    │   ├── Cluster.yaml
+    │   ├── cluster.yaml
     └── k8s
+```
