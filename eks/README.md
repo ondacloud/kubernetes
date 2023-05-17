@@ -1,4 +1,4 @@
-<h1 align="center"> Create EKS Cluster in eksctl</h1>
+<h1 align="center"> Create EKS Cluster with eksctl</h1>
 <p align="center"><img src="https://eksctl.io/assets/images/logo.png" width="100"></p>
 
 [eksctl] is an Packages for efficient creation and management of EKS clusters. It is also based on the Cloud Formation stack.
