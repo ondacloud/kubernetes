@@ -12,7 +12,7 @@ curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/d
 mv /tmp/eksctl /usr/bin
 ```
 
-# Cluster.yaml
+# Create Cluster.yaml
 ```
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
