@@ -62,7 +62,7 @@ vpc:
 
 managedNodeGroups:
   - name: <Worker Node Group name>
-    labels: { <ket>: <value> }
+    labels: { <key>: <value> }
     instanceName: <Instance name>
     instanceType: <Instance Type>
     desiredCapacity: 3
