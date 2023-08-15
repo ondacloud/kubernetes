@@ -1,4 +1,7 @@
-<h1 align="center"> Create Deployment </h1>
+<h1 align="center"> Create Deployment on RollingUpdate</h1>
+
+What is RollingUpdate on Deployment?
+allow Deployments' update to take place with zero downtime by incrementally updating Pods instances with new ones
 
 ----
 # Create Cluster.yaml
@@ -15,6 +18,10 @@ spec:
   selector:
     matchLabels:
       app: dev
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 50%
   template:
     metadata:
       labels:
