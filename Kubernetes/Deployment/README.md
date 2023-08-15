@@ -7,7 +7,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dev-dpm
-	namespace: dev-ns
+  namespace: dev-ns
   labels:
     app: dev
 spec:
