@@ -1,6 +1,6 @@
 <h1 align="center"> Create Deployment on Recreate</h1>
 
-What is Recreate on Deployment?
+# What is Recreate on Deployment?
 an all-or-nothing process that lets you update an application immediately, with some downtime
 
 ----
