@@ -38,12 +38,14 @@ vpc:
       <region>b: { id: <Subnet ID> }
       <region>c: { id: <Subnet ID> }
 
-managedNodeGroups:
-  - name: <Worker Node Group name>
-    labels: { <key>: <value> }
-    instanceName: <Instance name>
-    instanceType: <Instance Type>
-    desiredCapacity: 3
-    minSize: 3
-    maxSize: 20
-    privateNetworking: true
+fargateProfiles:
+  - name: <fargate profile name>
+    selectors:
+      - namespace: default
+      - namespace: kube-system
+      - namespace: cert-manager
+  - name: <fargate name>
+    selectors:
+      - namespace: <namespace>
+        labels:
+          <key>: <value>

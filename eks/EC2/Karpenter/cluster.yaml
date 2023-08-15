@@ -27,6 +27,11 @@ iam:
     wellKnownPolicies:
       certManager: true
 
+karpenter:
+  version: 'v0.21.0'
+  createServiceAccount: true
+
+
 vpc:
   subnets:
     public:
