@@ -1,7 +1,7 @@
 <h1 align="center"> Create Deployment </h1>
 
 ----
-# Create Cluster.yaml
+# Create Deployment
 ```
 apiVersion: apps/v1
 kind: Deployment

@@ -4,7 +4,7 @@ What is RollingUpdate on Deployment?
 allow Deployments' update to take place with zero downtime by incrementally updating Pods instances with new ones
 
 ----
-# Create Cluster.yaml
+# Create Deployment on RollingUpdate
 ```
 apiVersion: apps/v1
 kind: Deployment
