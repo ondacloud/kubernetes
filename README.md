@@ -6,10 +6,11 @@
     │   ├── eksctl.sh
     │   ├── kubectl.sh
     │   └── helm.sh
+    │
     ├── EKS
-    │   └──  cluster.yaml
-    │        ├── EC2
-    │        └── Fargate
+    │   └── cluster.yaml
+    │       ├── EC2
+    │       └── Fargate
     └── k8s
         ├── Pod
         │   ├── CPU - Memory
