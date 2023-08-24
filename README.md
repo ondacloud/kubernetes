@@ -7,11 +7,26 @@
     │   ├── kubectl.sh
     │   └── helm.sh
     ├── EKS
-    │   ├── cluster.yaml
+    │   └──  cluster.yaml
+    │        ├── EC2
+    │        └── Fargate
     └── k8s
-        ├── Node
         ├── Pod
+        │   ├── CPU - Memory
+        │   ├── ENV
+        │   └── Volume
+        │       ├── emptyDir
+        │       ├── HostPath
+        │       └── Persistent Volume Claim 
         ├── Deployment
+        │   ├── Recreate
+        │   └── RollingUpdate
         ├── Service
+        │   ├── ClusterIP
+        │   ├── ExternalName
+        │   ├── LoadBalancer
+        │   │   └── NLB
+        │   ├── NodePort
+        │   └── headless service
         ├── Ingress
 ```
