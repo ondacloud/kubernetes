@@ -17,10 +17,12 @@
         │   └── Volume
         │       ├── emptyDir
         │       ├── HostPath
-        │       └── Persistent Volume Claim 
+        │       └── Persistent Volume Claim
+        │ 
         ├── Deployment
         │   ├── Recreate
         │   └── RollingUpdate
+        │
         ├── Service
         │   ├── ClusterIP
         │   ├── ExternalName
@@ -28,6 +30,7 @@
         │   │   └── NLB
         │   ├── NodePort
         │   └── headless service
+        │
         ├── Ingress
-            └── ALB Controller
+        │   └── ALB Controller
 ```
