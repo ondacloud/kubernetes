@@ -29,4 +29,5 @@
         │   ├── NodePort
         │   └── headless service
         ├── Ingress
+            └── ALB Controller
 ```
