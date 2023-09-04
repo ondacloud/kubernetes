@@ -30,13 +30,13 @@ iam:
 vpc:
   subnets:
     public:
-      <region>a: { id: <Subnet ID> }
-      <region>b: { id: <Subnet ID> }
-      <region>c: { id: <Subnet ID> }
+      <region>a: { id: public_a }
+      <region>b: { id: public_b }
+      <region>c: { id: public_c }
     private:
-      <region>a: { id: <Subnet ID> }
-      <region>b: { id: <Subnet ID> }
-      <region>c: { id: <Subnet ID> }
+      <region>a: { id: private_a }
+      <region>b: { id: private_b }
+      <region>c: { id: private_c }
 
 fargateProfiles:
   - name: <fargate profile name>
