@@ -19,15 +19,17 @@ kind: ClusterConfig
 
 metadata:
   name: dev-eks-cluster
-  version: "1.26"
+  version: "1.27"
   region: ap-northeast-2
+  tags:
+    karpenter.sh/discovery: dev-eks-cluster
 
 iamIdentityMappings:
   - arn: arn:aws:iam::<Account ID>:role/PowerUserAccess
     groups:
       - system:masters
     username: admin
-    noDuplicateARNs: true # prevents shadowing of ARNs
+    noDuplicateARNs: true
 
 iam:
   withOIDC: true
@@ -68,13 +70,13 @@ iam:
 vpc:
   subnets:
     public:
-      ap-northeast-2a: { id: subnet-08696aff687971931 }
-      ap-northeast-2b: { id: subnet-071fa2eea06bdf0a3 }
-      ap-northeast-2c: { id: subnet-0f645f5f8468cf88b }
+      <region>a: { id: public_a }
+      <region>b: { id: public_b }
+      <region>c: { id: public_c }
     private:
-      ap-northeast-2a: { id: subnet-0ade4e90791ba5763 }
-      ap-northeast-2b: { id: subnet-0c5ace59bbf435ba2 }
-      ap-northeast-2c: { id: subnet-0ee85013c3133a831 }
+      <region>a: { id: private_a }
+      <region>b: { id: private_b }
+      <region>c: { id: private_c }
 
 managedNodeGroups:
   - name: dev-ng
@@ -88,6 +90,25 @@ managedNodeGroups:
     tags:
       k8s.io/cluster-autoscaler/enabled: "true"
       k8s.io/cluster-autoscaler/edu-eks-cluster: "owned"
+```
+# export Subnet Name
+```
+export public_a=`aws ec2 describe-subnets --filters "Name=tag:Name,Values=*<env>-public-a*" --query "Subnets[].SubnetId[]" --output text`
+export public_b=`aws ec2 describe-subnets --filters "Name=tag:Name,Values=*<env>-public-b*" --query "Subnets[].SubnetId[]" --output text`
+export public_c=`aws ec2 describe-subnets --filters "Name=tag:Name,Values=*<env>-public-c*" --query "Subnets[].SubnetId[]" --output text`
+export private_a=`aws ec2 describe-subnets --filters "Name=tag:Name,Values=*<env>-private-a*" --query "Subnets[].SubnetId[]" --output text`
+export private_b=`aws ec2 describe-subnets --filters "Name=tag:Name,Values=*<env>-private-b*" --query "Subnets[].SubnetId[]" --output text`
+export private_c=`aws ec2 describe-subnets --filters "Name=tag:Name,Values=*<env>-private-c*" --query "Subnets[].SubnetId[]" --output text`
+```
+
+# Change to Subnet ID on Cluster.yaml
+```
+sed -i "s|public_a|$public_a|g" cluster.yaml
+sed -i "s|public_b|$public_b|g" cluster.yaml
+sed -i "s|public_c|$public_c|g" cluster.yaml
+sed -i "s|private_a|$private_a|g" cluster.yaml
+sed -i "s|private_b|$private_b|g" cluster.yaml
+sed -i "s|private_c|$private_c|g" cluster.yaml
 ```
 
 # Create EKS Cluster

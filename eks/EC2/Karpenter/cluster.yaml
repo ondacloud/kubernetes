@@ -5,6 +5,12 @@ metadata:
   name: <EKS Cluster name>
   version: "<EKS version>"
   region: <region>
+    tags:
+    karpenter.sh/discovery: <EKS Cluster name>
+
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["*"]
 
 iamIdentityMappings:
   - arn: arn:aws:iam::<Account ID>:role/<Role name>
@@ -30,7 +36,6 @@ iam:
 karpenter:
   version: 'v0.21.0'
   createServiceAccount: true
-
 
 vpc:
   subnets:

@@ -6,6 +6,10 @@ metadata:
   version: "<EKS version>"
   region: <region>
 
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["*"]
+
 iamIdentityMappings:
   - arn: arn:aws:iam::<Account ID>:role/<Role name>
     groups:
