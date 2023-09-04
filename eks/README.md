@@ -44,28 +44,6 @@ iam:
       namespace: cert-manager
     wellKnownPolicies:
       certManager: true
-  - metadata:
-      name: cluster-autoscaler
-      namespace: kube-system
-      labels: {aws-usage: "cluster-ops"}
-    wellKnownPolicies:
-      autoScaler: true
-  - metadata:
-      name: autoscaler-service
-      namespace: kube-system
-    attachPolicy:
-      Version: "2012-10-17"
-      Statement:
-      - Effect: Allow
-        Action:
-        - "autoscaling:DescribeAutoScalingGroups"
-        - "autoscaling:DescribeAutoScalingInstances"
-        - "autoscaling:DescribeLaunchConfigurations"
-        - "autoscaling:DescribeTags"
-        - "autoscaling:SetDesiredCapacity"
-        - "autoscaling:TerminateInstanceInAutoScalingGroup"
-        - "ec2:DescribeLaunchTemplateVersions"
-        Resource: '*'
 
 vpc:
   subnets:
@@ -80,16 +58,13 @@ vpc:
 
 managedNodeGroups:
   - name: dev-ng
-    labels: { dev/deploy: api }
+    labels: { app: worker }
     instanceName: dev-ng
     instanceType: c5.large
     desiredCapacity: 3
     minSize: 3
     maxSize: 20
     privateNetworking: true
-    tags:
-      k8s.io/cluster-autoscaler/enabled: "true"
-      k8s.io/cluster-autoscaler/edu-eks-cluster: "owned"
 ```
 # export Subnet Name
 ```
