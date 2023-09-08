@@ -21,8 +21,6 @@ metadata:
   name: dev-eks-cluster
   version: "1.27"
   region: ap-northeast-2
-  tags:
-    karpenter.sh/discovery: dev-eks-cluster
 
 iamIdentityMappings:
   - arn: arn:aws:iam::<Account ID>:role/PowerUserAccess
